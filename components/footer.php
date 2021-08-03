@@ -16,6 +16,15 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
+        // Datatables Responsive
+        $("#users-table").DataTable({
+            responsive: true
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
         // Bar chart
         new Chart(document.getElementById("chartjs-dashboard-bar"), {
             type: "bar",

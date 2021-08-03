@@ -161,7 +161,7 @@
                 $firstName = $row['firstName'];
                 ?>
                 <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="dashboard-default-theme=default.html#" data-bs-toggle="dropdown">
-                    <img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded-circle me-1" alt="Chris Wood" /> <span class="text-dark"><?php echo $firstName; ?></span>
+                    <img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded-circle me-1" alt="<?php echo $firstName; ?>" /> <span class="text-dark"><?php echo $firstName; ?></span>
                 </a>
                 <?php
                     }
