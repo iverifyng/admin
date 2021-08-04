@@ -51,7 +51,7 @@ include "./components/sidebar.php";
                                         default:
                                             $Aclass  = '';
                                     }
-                                    $status         = $row['status'];
+                                    $status = $row['status'];
                                     switch ($status) {
                                         case "Inactive";
                                             $class  = 'bg-danger';
@@ -72,7 +72,7 @@ include "./components/sidebar.php";
                                     echo "<td class='text-end'>"
                                         ."<button class=\"btn btn-info\"><i class=\"fas fa-eye\"></i></button>"." "
                                         ."<a href='useredit?id=$id' class=\"btn btn-secondary\"><i class=\"fas fa-pen\"></i></a>"." "
-                                        ."<button class=\"btn btn-danger\"><i class=\"fas fa-trash-alt\"></i></button>".
+                                        ."<a href='javascript:void(0)' class=\"delete_btn btn btn-danger\"><i class=\"fas fa-trash-alt\"></i></a>".
                                         "</td >";
                                     "</tr>";
                                 }
