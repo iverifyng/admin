@@ -29,10 +29,17 @@ include "./components/sidebar.php";
                                     <div class="col-6">
                                         <div class="illustration-text p-3 m-1">
                                             <?php
+                                            $countUsers = mysqli_query($conn, "SELECT id FROM users");
+                                            echo "<h4 class=\"illustration-text\">".mysqli_num_rows($countUsers)."</h4>";
+                                            ?>
+                                            <p class="mb-1">Total Users</p>
+
+                                            <?php
                                             $countTraffic = mysqli_query($conn, "SELECT id FROM traffic");
-                                            echo "<h4 class=\"illustration-text\">".mysqli_num_rows($countTraffic)."</h4>";
+                                            echo "<h4 class=\"illustration-text\">".number_format(mysqli_num_rows($countTraffic), 0, '.', ',')."</h4>";
                                             ?>
                                             <p class="mb-0">Total Visitors</p>
+
                                         </div>
                                     </div>
                                     <div class="col-6 align-self-end text-end">
