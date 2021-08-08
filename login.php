@@ -50,34 +50,31 @@ require_once "./auth/account.php";
                     unset($_SESSION['message']);
                 }
               ?>
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
-              <div class="form-group mb-3">
-                <label for="email">Email</label>
-                <input type="text" required class="form-control" placeholder="sample@iverify.ng" name="email">
-              </div>
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
+                  <div class="form-group mb-3">
+                    <label for="email">Email</label>
+                    <input type="text" required class="form-control" placeholder="sample@iverify.ng" name="email">
+                  </div>
 
-              <div class="form-group mb-3">
-                <label for="password">Password</label>
-                <input type="password" required class="form-control" placeholder="Your Password" name="password">
-              </div>
-              
-              <div class="d-flex mb-3 align-items-center">
-                <span class="ml-auto">
-                    <a href="password-reset" class="text-dark" style="text-decoration: none;">Forgot Password?</a>
-                </span>
-              </div>
+                  <div class="form-group mb-3">
+                    <label for="password">Password</label>
+                    <input type="password" required class="form-control" placeholder="Your Password" name="password">
+                  </div>
 
-                <div class="d-grid">
+                  <div class="d-flex mb-3 align-items-center">
+                    <span class="ml-auto">
+                        <a href="password-reset" class="text-dark" style="text-decoration: none;">Forgot Password?</a>
+                    </span>
+                  </div>
+
+                  <div class="d-grid">
                     <button type="submit" name="admin_login_btn" class="btn btn-block btn-lg btn-primary">Log In</button>
-                </div>
-
-            </form>
-          </form>
+                  </div>
+                </form>
+            </div>
         </div>
       </div>
     </div>
-
-    
   </div>
 
   <script src="js/app.js"></script>

@@ -1,4 +1,5 @@
 <?php
+$page = 'Users';
 include "./config/db.php";
 include "./components/header.php";
 include "./components/sidebar.php";
@@ -72,7 +73,7 @@ include "./components/sidebar.php";
                                     echo "<td class='text-end'>"
                                         ."<button class=\"btn btn-info\"><i class=\"fas fa-eye\"></i></button>"." "
                                         ."<a href='useredit?id=$id' class=\"btn btn-secondary\"><i class=\"fas fa-pen\"></i></a>"." "
-                                        ."<a href='javascript:void(0)' class=\"delete_btn btn btn-danger\"><i class=\"fas fa-trash-alt\"></i></a>".
+                                        ."<a href='delete?id=$id' class=\"delete_btn btn btn-danger\" name=\"delete\"><i class=\"fas fa-trash-alt\"></i></a>".
                                         "</td >";
                                     "</tr>";
                                 }

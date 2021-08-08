@@ -192,12 +192,12 @@ sup {
 }
 
 a {
-    color: #3f80ea;
+    color: #28209c;
     text-decoration: none
 }
 
 a:hover {
-    color: #3266bb;
+    color: #28209c;
     text-decoration: underline
 }
 
@@ -3244,8 +3244,8 @@ fieldset:disabled .btn {
 .btn-dark.active,
 .btn-dark:active,
 .show>.btn-dark.dropdown-toggle {
-    background-color: #212635;
-    border-color: #1f2432;
+    background-color: #130e6b;
+    border-color: #130e6b;
     color: #fff
 }
 
@@ -5227,8 +5227,8 @@ fieldset:disabled .btn {
 }
 
 .list-group-item.active {
-    background-color: #3f80ea;
-    border-color: #3f80ea;
+    background-color: #28209c;
+    border-color: #28209c;
     color: #fff;
     z-index: 2
 }
@@ -6582,6 +6582,37 @@ fieldset:disabled .btn {
 
 .offcanvas.show {
     transform: none
+}
+
+.button--loading .button__text {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.button--loading::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border: 4px solid transparent;
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: button-loading-spinner 1s ease infinite;
+}
+
+@keyframes button-loading-spinner {
+    from {
+        transform: rotate(0turn);
+    }
+
+    to {
+        transform: rotate(1turn);
+    }
 }
 
 .clearfix:after {
@@ -13999,7 +14030,7 @@ body[data-sidebar-position=right] .navbar-align {
 }
 
 .nav-item .indicator {
-    background: #3f80ea;
+    background: #28209c;
     border-radius: 50%;
     box-shadow: 0 .1rem .2rem rgba(0, 0, 0, .05);
     color: #fff;
@@ -14507,7 +14538,10 @@ body[data-theme=light] .sidebar-link:hover svg {
 
 .sidebar-item.active .sidebar-link:hover,
 .sidebar-item.active>.sidebar-link {
-    color: #e9ecef
+    text-decoration: none;
+    color: #fff !important;
+    background: #160f88;
+    border-left: 5px solid #efa705;
 }
 
 body[data-theme=colored] .sidebar-item.active .sidebar-link:hover,
@@ -14529,7 +14563,7 @@ body[data-theme=light] .sidebar-item.active>.sidebar-link {
 .sidebar-item.active .sidebar-link:hover svg,
 .sidebar-item.active>.sidebar-link i,
 .sidebar-item.active>.sidebar-link svg {
-    color: #e9ecef
+    color: #efa703
 }
 
 body[data-theme=colored] .sidebar-item.active .sidebar-link:hover i,

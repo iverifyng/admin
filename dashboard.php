@@ -1,4 +1,5 @@
 <?php
+$page = 'Dashboard';
 include "./config/db.php";
 include "./components/header.php";
 include "./components/sidebar.php";
@@ -15,7 +16,7 @@ include "./components/sidebar.php";
                     </div>
 
                     <div class="col-auto ms-auto text-end mt-n1">
-                        <button class="btn btn-primary shadow-sm" onClick="refreshPage()">
+                        <button class="btn btn-dark shadow-sm" onClick="refreshPage()">
                             <i class="align-middle" data-feather="refresh-cw">&nbsp;</i>
                         </button>
                     </div>
