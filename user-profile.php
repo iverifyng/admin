@@ -13,13 +13,42 @@ if (mysqli_num_rows($result) > 0) {
         $id = $row['id'];
         $firstName = $row['firstName'];
         $lastName = $row['lastName'];
+        $email = $row['email'];
+        $phone = $row['phone'];
         $companyName = $row['companyName'];
         $badge = $row['badge'];
         $dateCreated = $row['dateCreated'];
-        $companyVerification = $row['companyVerification'];
-        $certificateVerification = $row['certificateVerification'];
-        $creditCheck = $row['creditCheck'];
-        $guarantorVerification = $row['guarantorVerification'];
+        $securityKey = $row['securityKey'];
+        $accountType = $row['accountType'];
+        $companyAddress = $row['companyAddress'];
+        $businessType = $row['businessType'];
+        $wallet = $row['wallet'];
+        $verified = $row['verified'];
+        $dateCreated = date_create($row[0]);
+        $status = $row['status'];
+        switch ($status) {
+            case "Inactive";
+                $Sclass  = 'danger';
+                break;
+            case "Active";
+                $Sclass  = 'success';
+                break;
+            default:
+                $Sclass  = '';
+        }
+        switch ($badge) {
+            case "Expert";
+                $class  = 'dark';
+                break;
+            case "Leader";
+                $class  = 'warning';
+                break;
+            case "Veteran";
+                $class  = 'info';
+                break;
+            default:
+                $class  = '';
+        }
     }
 }
 ?>
@@ -29,38 +58,74 @@ if (mysqli_num_rows($result) > 0) {
     <main class="content">
         <div class="container-fluid p-0">
 
-            <h1 class="h3 mb-3">Profile</h1>
+            <div class="row">
+                <div class="col-auto d-none d-sm-block">
+                    <h1 class="h3 mb-3">User Profile</h1>
+                </div>
+
+                <div class="col-auto ms-auto text-end mt-n1">
+                    <a href="user-edit?id=<?php echo $id; ?>" class="btn btn-dark shadow-sm" onClick="refreshPage()">
+                        <i class="align-middle" data-feather="edit"></i> Edit User
+                    </a>
+                </div>
+            </div>
 
             <div class="row">
+
                 <div class="col-md-4 col-xl-3">
                     <div class="card mb-3">
                         <div class="card-header">
                             <h5 class="card-title mb-0">User Details</h5>
                         </div>
                         <div class="card-body text-center">
-                            <img src="img/avatars/avatar-4.jpg" alt="Stacie Hall" class="img-fluid rounded-circle mb-2" width="128" height="128" />
+                            <img src="img/svg/usericon.svg" alt="User Picture" class="img-fluid rounded-circle mb-2" width="128" height="128" />
                             <h5 class="card-title"><?php echo $firstName; ?> <?php echo $lastName; ?> <?php echo $companyName; ?></h5>
 
                             <div>
-                                <a class="btn btn-info btn-sm" href="pages-profile.html#"><span data-feather="award"></span> <?php echo $badge; ?></a>
+                                <button class="btn btn-<?php echo $class; ?> btn-sm"><span data-feather="award"></span> <?php echo $badge; ?></button>
                             </div>
                         </div>
+
                         <hr class="my-0" />
                         <div class="card-body">
-                            <h5 class="h6 card-title">Account Creation Date</h5>
+                            <h5 class="h6 card-title">Account Type</h5>
                             <ul class="list-unstyled mb-0">
-                                <li class="mb-1"><span data-feather="calendar" class="feather-sm me-1 text-dark"></span> <?php echo date( 'Y-m-d H:i:s', $dateCreated ); ?> </li>
+                                <li class="mb-1">
+                                    <span data-feather="briefcase" class="feather me-1 text-dark"></span> <?php echo $accountType; ?>
+                                </li>
                             </ul>
                         </div>
+
                         <hr class="my-0" />
                         <div class="card-body">
                             <h5 class="h6 card-title">Security Key</h5>
                             <ul class="list-unstyled mb-0">
-                                <li class="mb-1"><span class="fas fa-globe fa-fw me-1"></span> <a href="pages-profile.html#">staciehall.co</a></li>
-                                <li class="mb-1"><span class="fab fa-twitter fa-fw me-1"></span> <a href="pages-profile.html#">Twitter</a></li>
-                                <li class="mb-1"><span class="fab fa-facebook fa-fw me-1"></span> <a href="pages-profile.html#">Facebook</a></li>
-                                <li class="mb-1"><span class="fab fa-instagram fa-fw me-1"></span> <a href="pages-profile.html#">Instagram</a></li>
-                                <li class="mb-1"><span class="fab fa-linkedin fa-fw me-1"></span> <a href="pages-profile.html#">LinkedIn</a></li>
+                                <li class="mb-1">
+                                    <span data-feather="shield" class="feather me-1 text-dark"></span> <?php echo $securityKey; ?>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <hr class="my-0" />
+                        <div class="card-body">
+                            <h5 class="h6 card-title">Wallet Balance</h5>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-1">
+                                    <span data-feather="dollar-sign" class="feather me-1 text-dark"></span> <?php echo "₦".number_format($wallet, 2, '.', ','); ?>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <hr class="my-0" />
+                        <div class="card-body">
+                            <h5 class="h6 card-title">Account Creation Date</h5>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-1">
+                                    <span data-feather="calendar" class="feather me-1 text-dark"></span> <?php echo date_format($dateCreated, 'l jS F Y'); ?>
+                                </li>
+                                <li class="mb-1">
+                                    <span data-feather="clock" class="feather me-1 text-dark"></span> <?php echo date_format($dateCreated, 'g:ia'); ?>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -70,126 +135,131 @@ if (mysqli_num_rows($result) > 0) {
                     <div class="card">
                         <div class="card-header">
                             <div class="card-actions float-end">
-                                <div class="dropdown show">
-                                    <a href="pages-profile.html#" data-bs-toggle="dropdown" data-bs-display="static">
-                                        <i class="align-middle" data-feather="more-horizontal"></i>
-                                    </a>
-
-                                    <div class="dropdown-menu dropdown-menu-end">
-                                        <a class="dropdown-item" href="pages-profile.html#">Action</a>
-                                        <a class="dropdown-item" href="pages-profile.html#">Another action</a>
-                                        <a class="dropdown-item" href="pages-profile.html#">Something else here</a>
-                                    </div>
+                                <div class="show">
+                                    <button class="btn btn-<?php echo $Sclass; ?> btn-sm"><span data-feather="radio"></span> <?php echo $status; ?></button>
                                 </div>
                             </div>
-                            <h5 class="card-title mb-0">Activities</h5>
+
+                            <h5 class="card-title mb-0">Full Details</h5>
                         </div>
                         <div class="card-body h-100">
 
-                            <div class="d-flex align-items-start">
-                                <img src="img/avatars/avatar-5.jpg" width="36" height="36" class="rounded-circle me-2" alt="Ashley Briggs">
-                                <div class="flex-grow-1">
-                                    <small class="float-end">5m ago</small>
-                                    <strong>Ashley Briggs</strong> started following <strong>Stacie Hall</strong><br />
-                                    <small class="text-muted">Today 7:51 pm</small><br />
-
-                                </div>
-                            </div>
-
-                            <hr />
-                            <div class="d-flex align-items-start">
-                                <img src="img/avatars/avatar.jpg" width="36" height="36" class="rounded-circle me-2" alt="Chris Wood">
-                                <div class="flex-grow-1">
-                                    <small class="float-end">30m ago</small>
-                                    <strong>Chris Wood</strong> posted something on <strong>Stacie Hall</strong>'s timeline<br />
-                                    <small class="text-muted">Today 7:21 pm</small>
-
-                                    <div class="border text-sm text-muted p-2 mt-1">
-                                        Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus
-                                        pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.
-                                    </div>
-
-                                    <a href="pages-profile.html#" class="btn btn-sm btn-danger mt-1"><i class="feather-sm" data-feather="heart"></i> Like</a>
-                                </div>
-                            </div>
-
-                            <hr />
-                            <div class="d-flex align-items-start">
-                                <img src="img/avatars/avatar-4.jpg" width="36" height="36" class="rounded-circle me-2" alt="Stacie Hall">
-                                <div class="flex-grow-1">
-                                    <small class="float-end">1h ago</small>
-                                    <strong>Stacie Hall</strong> posted a new blog<br />
-
-                                    <small class="text-muted">Today 6:35 pm</small>
-                                </div>
-                            </div>
-
-                            <hr />
-                            <div class="d-flex align-items-start">
-                                <img src="img/avatars/avatar-2.jpg" width="36" height="36" class="rounded-circle me-2" alt="Carl Jenkins">
-                                <div class="flex-grow-1">
-                                    <small class="float-end">3h ago</small>
-                                    <strong>Carl Jenkins</strong> posted two photos on <strong>Stacie Hall</strong>'s timeline<br />
-                                    <small class="text-muted">Today 5:12 pm</small>
-
-                                    <div class="row g-0 mt-1">
-                                        <div class="col-6 col-md-4 col-lg-4 col-xl-3">
-                                            <img src="img/photos/unsplash-1.jpg" class="img-fluid pe-2" alt="Unsplash">
-                                        </div>
-                                        <div class="col-6 col-md-4 col-lg-4 col-xl-3">
-                                            <img src="img/photos/unsplash-2.jpg" class="img-fluid pe-2" alt="Unsplash">
-                                        </div>
-                                    </div>
-
-                                    <a href="pages-profile.html#" class="btn btn-sm btn-danger mt-1"><i class="feather-sm" data-feather="heart"></i> Like</a>
-                                </div>
-                            </div>
-
-                            <hr />
-                            <div class="d-flex align-items-start">
-                                <img src="img/avatars/avatar-2.jpg" width="36" height="36" class="rounded-circle me-2" alt="Carl Jenkins">
-                                <div class="flex-grow-1">
-                                    <small class="float-end">1d ago</small>
-                                    <strong>Carl Jenkins</strong> started following <strong>Stacie Hall</strong><br />
-                                    <small class="text-muted">Yesterday 3:12 pm</small>
-
-                                    <div class="d-flex align-items-start mt-1">
-                                        <a class="pe-3" href="pages-profile.html#">
-                                            <img src="img/avatars/avatar-4.jpg" width="36" height="36" class="rounded-circle me-2" alt="Stacie Hall">
-                                        </a>
+                            <div class="row">
+                                <div class="col-md-6 col-lg-6">
+                                    <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
-                                            <div class="border text-sm text-muted p-2 mt-1">
-                                                Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus.
-                                            </div>
+                                            First Name:<br />
+                                            <strong>
+                                                <?php echo $firstName; if ($firstName == null) {
+                                                    echo "Not Available";
+                                                } ?>
+                                            </strong>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-lg-6">
+                                    <div class="d-flex align-items-start">
+                                        <div class="flex-grow-1">
+                                            Last Name:<br />
+                                            <strong>
+                                                <?php echo $lastName; if ($lastName == null) {
+                                                    echo "Not Available";
+                                                } ?>
+                                            </strong>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                             <hr />
-                            <div class="d-flex align-items-start">
-                                <img src="img/avatars/avatar-4.jpg" width="36" height="36" class="rounded-circle me-2" alt="Stacie Hall">
-                                <div class="flex-grow-1">
-                                    <small class="float-end">1d ago</small>
-                                    <strong>Stacie Hall</strong> posted a new blog<br />
-                                    <small class="text-muted">Yesterday 2:43 pm</small>
+
+                            <div class="row">
+                                <div class="col-md-6 col-lg-6">
+                                    <div class="d-flex align-items-start">
+                                        <div class="flex-grow-1">
+                                            Email:<br />
+                                            <strong><?php echo $email; ?></strong>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-lg-6">
+                                    <div class="d-flex align-items-start">
+                                        <div class="flex-grow-1">
+                                            Phone Number:<br />
+                                            <strong>
+                                                <?php echo $phone; if ($phone == null) {
+                                                    echo "Not Available";
+                                                } ?>
+                                            </strong>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
                             <hr />
-                            <div class="d-flex align-items-start">
-                                <img src="img/avatars/avatar.jpg" width="36" height="36" class="rounded-circle me-2" alt="Chris Wood">
-                                <div class="flex-grow-1">
-                                    <small class="float-end">1d ago</small>
-                                    <strong>Chris Wood</strong> started following <strong>Stacie Hall</strong><br />
-                                    <small class="text-muted">Yesterdag 1:51 pm</small>
+
+                            <div class="row">
+                                <div class="col-md-6 col-lg-6">
+                                    <div class="d-flex align-items-start">
+                                        <div class="flex-grow-1">
+                                            Company Name:<br />
+                                            <strong>
+                                                <?php echo $companyName; if ($companyName == null) {
+                                                    echo "Not Available";
+                                                } ?>
+                                            </strong>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-lg-6">
+                                    <div class="d-flex align-items-start">
+                                        <div class="flex-grow-1">
+                                            Company REG No.:<br />
+                                            <strong>
+                                                <?php echo $companyRegNum; if ($companyRegNum == null) {
+                                                    echo "Not Available";
+                                                } ?>
+                                            </strong>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
                             <hr />
-                            <div class="d-grid">
-                                <a href="pages-profile.html#" class="btn btn-primary">Load more</a>
+
+                            <div class="row">
+                                <div class="col-md-6 col-lg-6">
+                                    <div class="d-flex align-items-start">
+                                        <div class="flex-grow-1">
+                                            Company Address:<br />
+                                            <strong>
+                                                <?php echo $companyAddress; if ($companyAddress == null) {
+                                                    echo "Not Available";
+                                                } ?>
+                                            </strong>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-lg-6">
+                                    <div class="d-flex align-items-start">
+                                        <div class="flex-grow-1">
+                                            Account Verification:<br />
+                                            <strong>
+                                                <?php if ($verified == 0) {
+                                                    echo "Account not Verified";
+                                                } else {
+                                                    echo "Account Verified";
+                                                }?>
+                                            </strong>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+
                         </div>
                     </div>
                 </div>

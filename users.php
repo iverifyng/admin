@@ -99,7 +99,7 @@ require_once "./auth/delete.php";
                                         echo "<td>" ."<span class=\"badge $class\">$status</span>". "</td>";
                                         echo "<td class='text-end'>"
                                             ."<a href='user-profile?id=$id' class=\"btn btn-info\"><i class=\"fas fa-eye\"></i></a>"." "
-                                            ."<a href='useredit?id=$id' class=\"btn btn-secondary\"><i class=\"fas fa-pen\"></i></a>"." "
+                                            ."<a href='useedit?id=$id' class=\"btn btn-secondary\"><i class=\"fas fa-pen\"></i></a>"." "
                                             ."<button type='button' data-id=\"$id\" class=\"btn btn-danger\" onclick=\"confirmDelete(this);\"><i class=\"fas fa-trash-alt\"></i></button>".
                                             "</td >";
                                         "</tr>";

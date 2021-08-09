@@ -88,22 +88,9 @@
                 <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="dashboard-default-theme=default.html#" data-bs-toggle="dropdown">
                     <i class="align-middle" data-feather="settings"></i>
                 </a>
-                <?php
-                $select_query = "SELECT * FROM admin WHERE id ='".$_SESSION['id']."'";
-                $result = mysqli_query($conn, $select_query);
-                if (mysqli_num_rows($result) > 0) {
-                // output data of each row
-                while($row = mysqli_fetch_assoc($result)) {
-                $id = $row['id'];
-                $firstName = $row['firstName'];
-                ?>
                 <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="dashboard-default-theme=default.html#" data-bs-toggle="dropdown">
-                    <img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded-circle me-1" alt="<?php echo $firstName; ?>" /> <span class="text-dark"><?php echo $firstName; ?></span>
+                    <img src="img/svg/usericon.svg" class="avatar img-fluid rounded-circle me-1" alt="<?php echo $_SESSION['firstName']; ?>" /> <span class="text-dark"><?php echo $_SESSION['firstName']; ?></span>
                 </a>
-                <?php
-                    }
-                }
-                ?>
                 <div class="dropdown-menu dropdown-menu-end">
                     <a class="dropdown-item" href="profile"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
                     <a class="dropdown-item" href="dashboard-default-theme=default.html#"><i class="align-middle me-1" data-feather="pie-chart"></i> Analytics</a>
