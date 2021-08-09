@@ -30,7 +30,7 @@ include "./components/sidebar.php";
                                         <div class="illustration-text p-3 m-1">
                                             <?php
                                             $countUsers = mysqli_query($conn, "SELECT id FROM users");
-                                            echo "<h4 class=\"illustration-text\">".mysqli_num_rows($countUsers)."</h4>";
+                                            echo "<h4 class=\"illustration-text\">".number_format(mysqli_num_rows($countUsers), 0, '.', ',')."</h4>";
                                             ?>
                                             <p class="mb-1">Total Users</p>
 

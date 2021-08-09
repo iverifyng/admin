@@ -5725,7 +5725,6 @@ fieldset:disabled .btn {
 
 .modal-header {
     align-items: center;
-    border-bottom: 1px solid #dee6ed;
     border-top-left-radius: .3rem;
     border-top-right-radius: .3rem;
     display: flex;
@@ -5754,7 +5753,6 @@ fieldset:disabled .btn {
     align-items: center;
     border-bottom-left-radius: .3rem;
     border-bottom-right-radius: .3rem;
-    border-top: 1px solid #dee6ed;
     display: flex;
     flex-shrink: 0;
     flex-wrap: wrap;

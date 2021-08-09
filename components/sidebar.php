@@ -35,6 +35,7 @@
                     <li class="sidebar-item"><a class="sidebar-link" href="">Credit Check</a></li>
                 </ul>
             </li>
+            <!--
             <li class="sidebar-item">
                 <a data-bs-target="#datatables" data-bs-toggle="collapse" class="sidebar-link collapsed">
                     <i class="align-middle" data-feather="list"></i> <span class="align-middle">DataTables</span>
@@ -48,13 +49,14 @@
                     <li class="sidebar-item"><a class="sidebar-link" href="tables-datatables-ajax.html">Ajax Sourced Data</a></li>
                 </ul>
             </li>
+            -->
 
-            <li class="sidebar-item">
+            <li class="sidebar-item <?php if($page=='Topup'){echo 'active';}?>">
                 <a data-bs-target="#charts" data-bs-toggle="collapse" class="sidebar-link collapsed">
                     <i class="align-middle" data-feather="dollar-sign"></i> <span class="align-middle">Wallet Topup</span>
                 </a>
                 <ul id="charts" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-                    <li class="sidebar-item"><a class="sidebar-link" href="">Bank Transfer</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="bank-topup">Bank Transfer</a></li>
                     <li class="sidebar-item"><a class="sidebar-link" href="">Online Payment</a></li>
                 </ul>
             </li>
@@ -69,6 +71,7 @@
                 </a>
             </li>
 
+            <!--
             <li class="sidebar-item">
                 <a data-bs-target="#multi" data-bs-toggle="collapse" class="sidebar-link collapsed">
                     <i class="align-middle" data-feather="share-2"></i> <span class="align-middle">Multi Level</span>
@@ -108,14 +111,15 @@
                     </li>
                 </ul>
             </li>
+            -->
 
             <li class="sidebar-header">
                 Addons
             </li>
 
-            <li class="sidebar-item">
+            <li class="sidebar-item <?php if($page=='Staff'){echo 'active';}?>">
                 <a data-bs-target="#maps" data-bs-toggle="collapse" class="sidebar-link collapsed">
-                    <i class="align-middle" data-feather="user-check"></i> <span class="align-middle">Staff</span>
+                    <i class="align-middle" data-feather="user-check"></i> <span class="align-middle">iVerify Staff</span>
                 </a>
                 <ul id="maps" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
                     <li class="sidebar-item"><a class="sidebar-link" href="admins">Admins</a></li>
