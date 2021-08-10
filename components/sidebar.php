@@ -114,7 +114,7 @@
             -->
 
             <li class="sidebar-header">
-                Addons
+                Preferences
             </li>
 
             <li class="sidebar-item <?php if($page=='Staff'){echo 'active';}?>">

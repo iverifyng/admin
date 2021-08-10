@@ -22,10 +22,11 @@ if (mysqli_num_rows($result) > 0) {
         $accountType = $row['accountType'];
         $companyAddress = $row['companyAddress'];
         $businessType = $row['businessType'];
+        $companyRegNum = $row['companyRegNum'];
         $wallet = $row['wallet'];
         $verified = $row['verified'];
-        $dateCreated = date_create($row[0]);
         $status = $row['status'];
+        $date = strtotime($dateCreated);
         switch ($status) {
             case "Inactive";
                 $Sclass  = 'danger';
@@ -121,10 +122,10 @@ if (mysqli_num_rows($result) > 0) {
                             <h5 class="h6 card-title">Account Creation Date</h5>
                             <ul class="list-unstyled mb-0">
                                 <li class="mb-1">
-                                    <span data-feather="calendar" class="feather me-1 text-dark"></span> <?php echo date_format($dateCreated, 'l jS F Y'); ?>
+                                    <span data-feather="calendar" class="feather me-1 text-dark"></span> <?php echo date('j F Y', $date); ?>
                                 </li>
                                 <li class="mb-1">
-                                    <span data-feather="clock" class="feather me-1 text-dark"></span> <?php echo date_format($dateCreated, 'g:ia'); ?>
+                                    <span data-feather="clock" class="feather me-1 text-dark"></span> <?php echo date('g:ia', $date); ?>
                                 </li>
                             </ul>
                         </div>
@@ -148,7 +149,7 @@ if (mysqli_num_rows($result) > 0) {
                                 <div class="col-md-6 col-lg-6">
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
-                                            First Name:<br />
+                                            First Name<br />
                                             <strong>
                                                 <?php echo $firstName; if ($firstName == null) {
                                                     echo "Not Available";
@@ -161,7 +162,7 @@ if (mysqli_num_rows($result) > 0) {
                                 <div class="col-md-6 col-lg-6">
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
-                                            Last Name:<br />
+                                            Last Name<br />
                                             <strong>
                                                 <?php echo $lastName; if ($lastName == null) {
                                                     echo "Not Available";
@@ -178,7 +179,7 @@ if (mysqli_num_rows($result) > 0) {
                                 <div class="col-md-6 col-lg-6">
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
-                                            Email:<br />
+                                            Email<br />
                                             <strong><?php echo $email; ?></strong>
                                         </div>
                                     </div>
@@ -187,7 +188,7 @@ if (mysqli_num_rows($result) > 0) {
                                 <div class="col-md-6 col-lg-6">
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
-                                            Phone Number:<br />
+                                            Phone Number<br />
                                             <strong>
                                                 <?php echo $phone; if ($phone == null) {
                                                     echo "Not Available";
@@ -204,7 +205,7 @@ if (mysqli_num_rows($result) > 0) {
                                 <div class="col-md-6 col-lg-6">
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
-                                            Company Name:<br />
+                                            Company Name<br />
                                             <strong>
                                                 <?php echo $companyName; if ($companyName == null) {
                                                     echo "Not Available";
@@ -217,7 +218,7 @@ if (mysqli_num_rows($result) > 0) {
                                 <div class="col-md-6 col-lg-6">
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
-                                            Company REG No.:<br />
+                                            Company REG No.<br />
                                             <strong>
                                                 <?php echo $companyRegNum; if ($companyRegNum == null) {
                                                     echo "Not Available";
@@ -234,9 +235,9 @@ if (mysqli_num_rows($result) > 0) {
                                 <div class="col-md-6 col-lg-6">
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
-                                            Company Address:<br />
+                                            Business Type<br />
                                             <strong>
-                                                <?php echo $companyAddress; if ($companyAddress == null) {
+                                                <?php echo $businessType; if ($businessType == null) {
                                                     echo "Not Available";
                                                 } ?>
                                             </strong>
@@ -247,7 +248,24 @@ if (mysqli_num_rows($result) > 0) {
                                 <div class="col-md-6 col-lg-6">
                                     <div class="d-flex align-items-start">
                                         <div class="flex-grow-1">
-                                            Account Verification:<br />
+                                            Company Address<br />
+                                            <strong>
+                                                <?php echo $companyAddress; if ($companyAddress == null) {
+                                                    echo "Not Available";
+                                                } ?>
+                                            </strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr />
+
+                            <div class="row">
+                                <div class="col-md-6 col-lg-6">
+                                    <div class="d-flex align-items-start">
+                                        <div class="flex-grow-1">
+                                            Account Verification<br />
                                             <strong>
                                                 <?php if ($verified == 0) {
                                                     echo "Account not Verified";

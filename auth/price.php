@@ -12,10 +12,10 @@ if (isset($_POST['corporate_employee_btn'])) {
     mysqli_query($conn, $update_query);
     if (mysqli_affected_rows($conn) > 0 ) {
         $_SESSION['success_status'] = "Welldone Chief 👍 <strong>Corporate Employee</strong> Price Updated.";
-        echo '<meta http-equiv="refresh" content="4; URL=price-list">';
+        echo '<meta http-equiv="refresh" content="2; URL=price-list">';
     } else {
         $_SESSION['error_status']    = "Error updating record ".mysqli_error($conn);
-        echo '<meta http-equiv="refresh" content="4; URL=price-list">';
+        echo '<meta http-equiv="refresh" content="2; URL=price-list">';
     }
 }
 
@@ -29,10 +29,10 @@ if (isset($_POST['domestic_employee_btn'])) {
     mysqli_query($conn, $update_query);
     if (mysqli_affected_rows($conn) > 0 ) {
         $_SESSION['success_status'] = "Welldone Chief 👍 <strong>Domestic Employee</strong> Price Updated.";
-        echo '<meta http-equiv="refresh" content="4; URL=price-list">';
+        echo '<meta http-equiv="refresh" content="2; URL=price-list">';
     } else {
         $_SESSION['error_status']    = "Error updating record ".mysqli_error($conn);
-        echo '<meta http-equiv="refresh" content="4; URL=price-list">';
+        echo '<meta http-equiv="refresh" content="2; URL=price-list">';
     }
 }
 
@@ -46,10 +46,10 @@ if (isset($_POST['tenant_verification_btn'])) {
     mysqli_query($conn, $update_query);
     if (mysqli_affected_rows($conn) > 0 ) {
         $_SESSION['success_status'] = "Welldone Chief 👍 <strong>Tenant Verification</strong> Price Updated.";
-        echo '<meta http-equiv="refresh" content="4; URL=price-list">';
+        echo '<meta http-equiv="refresh" content="2; URL=price-list">';
     } else {
         $_SESSION['error_status']    = "Error updating record ".mysqli_error($conn);
-        echo '<meta http-equiv="refresh" content="4; URL=price-list">';
+        echo '<meta http-equiv="refresh" content="2; URL=price-list">';
     }
 }
 
@@ -63,10 +63,10 @@ if (isset($_POST['property_verification_btn'])) {
     mysqli_query($conn, $update_query);
     if (mysqli_affected_rows($conn) > 0 ) {
         $_SESSION['success_status'] = "Welldone Chief 👍 <strong>Property Verification</strong> Price Updated.";
-        echo '<meta http-equiv="refresh" content="4; URL=price-list">';
+        echo '<meta http-equiv="refresh" content="2; URL=price-list">';
     } else {
         $_SESSION['error_status']    = "Error updating record ".mysqli_error($conn);
-        echo '<meta http-equiv="refresh" content="4; URL=price-list">';
+        echo '<meta http-equiv="refresh" content="2; URL=price-list">';
     }
 }
 
@@ -80,10 +80,10 @@ if (isset($_POST['employee_lite_btn'])) {
     mysqli_query($conn, $update_query);
     if (mysqli_affected_rows($conn) > 0 ) {
         $_SESSION['success_status'] = "Welldone Chief 👍 <strong>Employee Lite</strong> Price Updated.";
-        echo '<meta http-equiv="refresh" content="4; URL=price-list">';
+        echo '<meta http-equiv="refresh" content="2; URL=price-list">';
     } else {
         $_SESSION['error_status']    = "Error updating record ".mysqli_error($conn);
-        echo '<meta http-equiv="refresh" content="4; URL=price-list">';
+        echo '<meta http-equiv="refresh" content="2; URL=price-list">';
     }
 }
 
@@ -97,10 +97,10 @@ if (isset($_POST['company_verification_btn'])) {
     mysqli_query($conn, $update_query);
     if (mysqli_affected_rows($conn) > 0 ) {
         $_SESSION['success_status'] = "Welldone Chief 👍 <strong>Company Verification</strong> Price Updated.";
-        echo '<meta http-equiv="refresh" content="4; URL=price-list">';
+        echo '<meta http-equiv="refresh" content="2; URL=price-list">';
     } else {
         $_SESSION['error_status']    = "Error updating record ".mysqli_error($conn);
-        echo '<meta http-equiv="refresh" content="4; URL=price-list">';
+        echo '<meta http-equiv="refresh" content="2; URL=price-list">';
     }
 }
 
@@ -114,10 +114,10 @@ if (isset($_POST['certificate_verification_btn'])) {
     mysqli_query($conn, $update_query);
     if (mysqli_affected_rows($conn) > 0 ) {
         $_SESSION['success_status'] = "Welldone Chief 👍 <strong>Certificate Verification</strong> Price Updated.";
-        echo '<meta http-equiv="refresh" content="4; URL=price-list">';
+        echo '<meta http-equiv="refresh" content="2; URL=price-list">';
     } else {
         $_SESSION['error_status']    = "Error updating record ".mysqli_error($conn);
-        echo '<meta http-equiv="refresh" content="4; URL=price-list">';
+        echo '<meta http-equiv="refresh" content="2; URL=price-list">';
     }
 }
 
@@ -131,10 +131,10 @@ if (isset($_POST['credit_check_btn'])) {
     mysqli_query($conn, $update_query);
     if (mysqli_affected_rows($conn) > 0 ) {
         $_SESSION['success_status'] = "Welldone Chief 👍 <strong>Credit Score Verification</strong> Price Updated.";
-        echo '<meta http-equiv="refresh" content="4; URL=price-list">';
+        echo '<meta http-equiv="refresh" content="2; URL=price-list">';
     } else {
         $_SESSION['error_status']    = "Error updating record ".mysqli_error($conn);
-        echo '<meta http-equiv="refresh" content="4; URL=price-list">';
+        echo '<meta http-equiv="refresh" content="2; URL=price-list">';
     }
 }
 
@@ -148,9 +148,9 @@ if (isset($_POST['guarantor_verification_btn'])) {
     mysqli_query($conn, $update_query);
     if (mysqli_affected_rows($conn) > 0 ) {
         $_SESSION['success_status'] = "Welldone Chief 👍 <strong>Guarantor Verification</strong> Price Updated.";
-        echo '<meta http-equiv="refresh" content="4; URL=price-list">';
+        echo '<meta http-equiv="refresh" content="2; URL=price-list">';
     } else {
         $_SESSION['error_status']    = "Error updating record ".mysqli_error($conn);
-        echo '<meta http-equiv="refresh" content="4; URL=price-list">';
+        echo '<meta http-equiv="refresh" content="2; URL=price-list">';
     }
 }
