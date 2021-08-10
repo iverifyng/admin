@@ -121,6 +121,6 @@ require_once "./auth/delete.php";
     </main>
 
 <?php
-include "./modals/delete-modal.php";
+include "./modals/modal.php";
 include "./components/footer.php";
 ?>

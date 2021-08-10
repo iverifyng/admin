@@ -3,6 +3,8 @@ $page = "Topup";
 include "./config/db.php";
 include "./components/header.php";
 include "./components/sidebar.php";
+require_once "./auth/query.php";
+require_once "./auth/delete.php";
 
 ?>
 
@@ -15,6 +17,30 @@ include "./components/sidebar.php";
             <h1 class="h3 mb-3">Bank Transfer</h1>
 
             <div class="row">
+                <?php
+                if (isset($_SESSION['error_status'])) {
+                    ?>
+                    <div class="alert alert-danger" role="alert">
+                        <div class="alert-message text-center lead">
+                            <?php echo $_SESSION['error_status']; ?>
+                        </div>
+                    </div>
+                    <?php
+                    unset($_SESSION['error_status']);
+                }
+                ?>
+                <?php
+                if (isset($_SESSION['success_status'])) {
+                    ?>
+                    <div class="alert alert-success" role="alert">
+                        <div class="alert-message text-center lead">
+                            <?php echo $_SESSION['success_status']; ?>
+                        </div>
+                    </div>
+                    <?php
+                    unset($_SESSION['success_status']);
+                }
+                ?>
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
@@ -67,10 +93,14 @@ include "./components/sidebar.php";
                                         echo "<td>" ."₦".number_format($amount, 2, '.', ','). "</td>";
                                         echo "<td>" .$transRef. "</td>";
                                         echo "<td>" ."<span class=\"badge $class\">$paymentStatus</span>". "</td>";
-                                        echo "<td class='text-end'>"
-                                            ."<button class=\"btn btn-info\"><i class=\"fas fa-eye\"></i></button>"." "
-                                            ."<a href='useredit?id=$id' class=\"btn btn-secondary\"><i class=\"fas fa-pen\"></i></a>"." "
-                                            ."<a href='delete?id=$id' class=\"delete_btn btn btn-danger\" name=\"delete\"><i class=\"fas fa-trash-alt\"></i></a>".
+                                        echo "<td class='text-end'>";
+                                            if ($paymentStatus == "Successful") {
+                                                echo "<button class='btn btn-secondary'><i class='fas fa-check-circle'></i> Approved</button>"." ";
+                                            }else {
+                                                echo "<button type='button' data-id=\"$id\" info-id='$amount' class=\"btn btn-success\" onclick=\"confirmPayment(this);\"><i class=\"fas fa-check\"></i></i> Approve</button>"." ";
+                                            }
+                                            echo "<a href='banktopup-details?id=$id' class=\"btn btn-info\"><i class=\"fas fa-eye\"></i></a>"." "
+                                            ."<button type='button' data-id=\"$id\" class=\"btn btn-danger\" onclick=\"bankTopupDelete(this);\"><i class=\"fas fa-trash-alt\"></i></button>".
                                             "</td >";
                                         "</tr>";
                                         $topup_id++;
@@ -91,4 +121,7 @@ include "./components/sidebar.php";
     </main>
 
 
-<?php include "./components/footer.php"; ?>
+<?php
+include "./modals/modal.php";
+include "./components/footer.php";
+?>

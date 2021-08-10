@@ -92,7 +92,7 @@ if (mysqli_num_rows($result) > 0) {
                             <h5 class="h6 card-title">Account Type</h5>
                             <ul class="list-unstyled mb-0">
                                 <li class="mb-1">
-                                    <span data-feather="briefcase" class="feather me-1 text-dark"></span> <?php echo $accountType; ?>
+                                    <span data-feather="briefcase" class="feather me-1 text-warning"></span> <?php echo $accountType; ?>
                                 </li>
                             </ul>
                         </div>
@@ -102,7 +102,7 @@ if (mysqli_num_rows($result) > 0) {
                             <h5 class="h6 card-title">Security Key</h5>
                             <ul class="list-unstyled mb-0">
                                 <li class="mb-1">
-                                    <span data-feather="shield" class="feather me-1 text-dark"></span> <?php echo $securityKey; ?>
+                                    <span data-feather="key" class="feather me-1 text-warning"></span> <?php echo $securityKey; ?>
                                 </li>
                             </ul>
                         </div>
@@ -112,7 +112,7 @@ if (mysqli_num_rows($result) > 0) {
                             <h5 class="h6 card-title">Wallet Balance</h5>
                             <ul class="list-unstyled mb-0">
                                 <li class="mb-1">
-                                    <span data-feather="dollar-sign" class="feather me-1 text-dark"></span> <?php echo "₦".number_format($wallet, 2, '.', ','); ?>
+                                    <span data-feather="dollar-sign" class="feather me-1 text-warning"></span> <?php echo "₦".number_format($wallet, 2, '.', ','); ?>
                                 </li>
                             </ul>
                         </div>
@@ -122,10 +122,10 @@ if (mysqli_num_rows($result) > 0) {
                             <h5 class="h6 card-title">Account Creation Date</h5>
                             <ul class="list-unstyled mb-0">
                                 <li class="mb-1">
-                                    <span data-feather="calendar" class="feather me-1 text-dark"></span> <?php echo date('j F Y', $date); ?>
+                                    <span data-feather="calendar" class="feather me-1 text-warning"></span> <?php echo date('j F Y', $date); ?>
                                 </li>
                                 <li class="mb-1">
-                                    <span data-feather="clock" class="feather me-1 text-dark"></span> <?php echo date('g:ia', $date); ?>
+                                    <span data-feather="clock" class="feather me-1 text-warning"></span> <?php echo date('g:ia', $date); ?>
                                 </li>
                             </ul>
                         </div>
