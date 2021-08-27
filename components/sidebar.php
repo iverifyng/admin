@@ -16,7 +16,7 @@
                 </a>
             </li>
             <li class="sidebar-item <?php if($page=='Messages'){echo 'active';}?>">
-                <a class="sidebar-link" href="users">
+                <a class="sidebar-link" href="messages">
                     <i class="align-middle" data-feather="message-circle"></i> <span class="align-middle">Messages</span>
                 </a>
             </li>

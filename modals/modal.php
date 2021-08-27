@@ -32,7 +32,7 @@
                     <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="form-payment-approval">
                         <div class="row">
                             <div class="mb-3 col-md-6" style="display: none;">
-                                <label class="form-label" for="firstName">ID</label>
+                                <label class="form-label" for="id">ID</label>
                                 <input type="text" class="form-control form-control-lg" name="id">
                             </div>
 

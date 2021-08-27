@@ -1,8 +1,10 @@
 <?php
+
 // Connect database
 include "./config/db.php";
 
 $id = $_GET['id'];
+$userID = $_GET['userID'];
 //User Account Update
 if (isset($_POST['user_update_btn'])) {
 
@@ -50,7 +52,7 @@ if (isset($_POST['fund_wallet'])) {
                 $walletNewAmount = floor($row["wallet"] + $amount);
 
                 //update user wallet
-                $fund_wallet_query = "UPDATE users SET wallet=$walletNewAmount WHERE id ='$id'";
+                $fund_wallet_query = "UPDATE users SET wallet=$walletNewAmount WHERE id ='$userID'";
                 mysqli_query($conn, $fund_wallet_query);
                 if (mysqli_affected_rows($conn) > 0) {
 
@@ -66,5 +68,23 @@ if (isset($_POST['fund_wallet'])) {
                 }
             }
         }
+    }
+}
+
+
+//Change Message Status
+if (isset($_POST['close_message_btn'])) {
+
+    $id = $conn->real_escape_string($_POST['id']);
+    $status = $conn->real_escape_string($_POST['status']);
+
+    $update_query = "UPDATE contact SET status='Read' WHERE id='$id'";
+    mysqli_query($conn, $update_query);
+    if (mysqli_affected_rows($conn) > 0 ) {
+        $_SESSION['success_status'] = "Message Read 👍";
+        echo "<meta http-equiv='refresh' content='2; URL=messages'>";
+    } else {
+        $_SESSION['error_status'] = "Error updating record ".mysqli_error($conn);
+        echo "<meta http-equiv='refresh' content='2; URL=messages'>";
     }
 }
