@@ -8,10 +8,10 @@ require_once "./auth/query.php";
 <div class="main">
     <?php include "./components/navbar.php"; ?>
 
-    <main class="content">
+            <main class="content">
 				<div class="container-fluid p-0">
 
-					<h1 class="h3 mb-3">Invoice</h1>
+					<h1 class="h3 mb-3">The Message</h1>
                     <?php
                         $id = $_GET['id'];
                         $select_query = "SELECT * FROM contact WHERE id ='$id'";
@@ -94,7 +94,7 @@ require_once "./auth/query.php";
 
 										<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
                                         <input type="hidden" class="form-control form-control-lg" name="id" value="<?php echo $id; ?>">
-                                            <button type="submit" name="close_message_btn" class="btn btn-primary">
+                                            <button type="submit" name="close_message_btn" class="btn btn-dark">
                                                 Close Message
                                             </button>
                                         </form>
