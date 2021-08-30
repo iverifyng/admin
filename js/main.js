@@ -6,6 +6,14 @@ function confirmDelete(self) {
     $("#userDeleteModal").modal("show");
 }
 
+//Message Delete Trigger
+function confirmMsgDelete(self) {
+    var id = self.getAttribute("data-id");
+
+    document.getElementById("form-delete-msg").id.value = id;
+    $("#messageDeleteModal").modal("show");
+}
+
 //Payment Confirmation Trigger
 function confirmPayment(self) {
     var id = self.getAttribute("data-id");

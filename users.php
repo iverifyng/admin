@@ -98,6 +98,7 @@ require_once "./auth/delete.php";
                                         echo "<td>" ."₦" .number_format($wallet, 2, '.', ','). "</td>";
                                         echo "<td>" ."<span class=\"badge $class\">$status</span>". "</td>";
                                         echo "<td class='text-end'>"
+                                        ."<a href='debit-user?id=$id' class=\"btn btn-warning\"><i class=\"fas fa-dollar-sign\"></i> Debit User</a>"." "
                                             ."<a href='user-profile?id=$id' class=\"btn btn-info\"><i class=\"fas fa-eye\"></i></a>"." "
                                             ."<a href='user-edit?id=$id' class=\"btn btn-secondary\"><i class=\"fas fa-pen\"></i></a>"." "
                                             ."<button type='button' data-id=\"$id\" class=\"btn btn-danger\" onclick=\"confirmDelete(this);\"><i class=\"fas fa-trash-alt\"></i></button>".

@@ -35,22 +35,6 @@
                     <li class="sidebar-item"><a class="sidebar-link" href="">Credit Check</a></li>
                 </ul>
             </li>
-            <!--
-            <li class="sidebar-item">
-                <a data-bs-target="#datatables" data-bs-toggle="collapse" class="sidebar-link collapsed">
-                    <i class="align-middle" data-feather="list"></i> <span class="align-middle">DataTables</span>
-                </a>
-                <ul id="datatables" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-                    <li class="sidebar-item"><a class="sidebar-link" href="">Responsive Table</a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="tables-datatables-buttons.html">Table with Buttons</a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="tables-datatables-column-search.html">Column Search</a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="tables-datatables-fixed-header.html">Fixed Header</a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="tables-datatables-multi.html">Multi Selection</a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="tables-datatables-ajax.html">Ajax Sourced Data</a></li>
-                </ul>
-            </li>
-            -->
-
             <li class="sidebar-item <?php if($page=='Topup'){echo 'active';}?>">
                 <a data-bs-target="#charts" data-bs-toggle="collapse" class="sidebar-link collapsed">
                     <i class="align-middle" data-feather="dollar-sign"></i> <span class="align-middle">Wallet Topup</span>
@@ -70,48 +54,6 @@
                     <i class="align-middle" data-feather="edit"></i> <span class="align-middle">Verification Prices</span>
                 </a>
             </li>
-
-            <!--
-            <li class="sidebar-item">
-                <a data-bs-target="#multi" data-bs-toggle="collapse" class="sidebar-link collapsed">
-                    <i class="align-middle" data-feather="share-2"></i> <span class="align-middle">Multi Level</span>
-                </a>
-                <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                    <li class="sidebar-item">
-                        <a data-bs-target="#multi-2" data-bs-toggle="collapse" class="sidebar-link collapsed">
-                            Two Levels
-                        </a>
-                        <ul id="multi-2" class="sidebar-dropdown list-unstyled collapse">
-                            <li class="sidebar-item">
-                                <a class="sidebar-link" data-bs-target="#">Item 1</a>
-                                <a class="sidebar-link" data-bs-target="#">Item 2</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="sidebar-item">
-                        <a data-bs-target="#multi-3" data-bs-toggle="collapse" class="sidebar-link collapsed">
-                            Three Levels
-                        </a>
-                        <ul id="multi-3" class="sidebar-dropdown list-unstyled collapse">
-                            <li class="sidebar-item">
-                                <a data-bs-target="#multi-3-1" data-bs-toggle="collapse" class="sidebar-link collapsed">
-                                    Item 1
-                                </a>
-                                <ul id="multi-3-1" class="sidebar-dropdown list-unstyled collapse">
-                                    <li class="sidebar-item">
-                                        <a class="sidebar-link" data-bs-target="#">Item 1</a>
-                                        <a class="sidebar-link" data-bs-target="#">Item 2</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="sidebar-item">
-                                <a class="sidebar-link" data-bs-target="#">Item 2</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            -->
 
             <li class="sidebar-header">
                 Preferences

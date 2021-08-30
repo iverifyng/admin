@@ -130,6 +130,12 @@
         });
     });
 </script>
+<!-- History Trigger -->
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
 
 </body>
 

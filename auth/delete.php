@@ -21,6 +21,23 @@ if (isset($_POST['delete_user'])) {
 }
 
 
+//Message User Query
+if (isset($_POST['delete_msg'])) {
+
+    $id = $conn->real_escape_string($_POST['id']);
+
+    $delete_query = "DELETE FROM contact WHERE id='$id'";
+    mysqli_query($conn, $delete_query);
+    if (mysqli_affected_rows($conn) > 0 ) {
+        $_SESSION['success_status'] = "Welldone Chief 👍 <strong>Message deleted!</strong>";
+        echo '<meta http-equiv="refresh" content="2; URL=messages">';
+    } else {
+        $_SESSION['error_status'] = "Please <strong>Delete</strong> other records linked to this message.";
+        echo '<meta http-equiv="refresh" content="2; URL=messages">';
+    }
+}
+
+
 //Bank Topup Query
 if (isset($_POST['delete_bank_topup'])) {
 

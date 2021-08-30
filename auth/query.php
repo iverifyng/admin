@@ -4,7 +4,6 @@
 include "./config/db.php";
 
 $id = $_GET['id'];
-$userID = $_GET['userID'];
 //User Account Update
 if (isset($_POST['user_update_btn'])) {
 
@@ -21,9 +20,7 @@ if (isset($_POST['user_update_btn'])) {
     $companyRegNum = $conn->real_escape_string($_POST['companyRegNum']);
     $status = $conn->real_escape_string($_POST['status']);
 
-    $update_query = "UPDATE users SET firstName='$firstName', lastName='$lastName', email='$email',
-                 phone='$phone', companyName='$companyName', badge='$badge', accountType='$accountType',
-                 companyAddress='$companyAddress', businessType='$businessType', companyRegNum='$companyRegNum', status='$status' WHERE id='$id'";
+    $update_query = "UPDATE users SET firstName='$firstName', lastName='$lastName', email='$email', phone='$phone', companyName='$companyName', badge='$badge', accountType='$accountType', companyAddress='$companyAddress', businessType='$businessType', companyRegNum='$companyRegNum', status='$status' WHERE id='$id'";
     mysqli_query($conn, $update_query);
     if (mysqli_affected_rows($conn) > 0 ) {
         $_SESSION['success_status'] = "Welldone Chief 👍 <strong>User Account</strong> Updated.";
@@ -34,7 +31,40 @@ if (isset($_POST['user_update_btn'])) {
     }
 }
 
+//Debit User Account
+if (isset($_POST['debit_user_btn'])) {
 
+    $id = $_GET['id'];
+
+    $id = $conn->real_escape_string($_POST['id']);
+    $wallet = $conn->real_escape_string($_POST['wallet']);
+    $amount = $conn->real_escape_string($_POST['amount']);
+    $userID = $conn->real_escape_string($_POST['userID']);
+    $userFullName = $conn->real_escape_string($_POST['userFullName']);
+    $userBalance = $conn->real_escape_string($_POST['userBalance']);
+    $amountDebited = $conn->real_escape_string($_POST['amountDebited']);
+    $reason = $conn->real_escape_string($_POST['reason']);
+    $transRef = 'DREF'.rand(10000000000, 9999);
+
+    
+    $query = "INSERT INTO user_debits (userID, userFullName, userBalance, amountDebited, transRef, reason)"
+                . "VALUES ('$userID', '$userFullName', '$userBalance', '$amountDebited', '$transRef', '$reason')";
+    mysqli_query($conn, $query);
+    if (mysqli_affected_rows($conn) > 0 ) {
+
+        $walletNewAmount = floor($row["wallet"] - $amount);
+
+        $update_query = "UPDATE users SET wallet=$walletNewAmount WHERE id='$id'";
+
+        $_SESSION['success_status'] = "Welldone Chief 👍 <strong>User Account</strong> Debited.";
+        echo "<meta http-equiv='refresh' content='2; URL=debit-user?id=$id'>";
+    } else {
+        $_SESSION['error_status'] = "Error updating record ".mysqli_error($conn);
+        echo "<meta http-equiv='refresh' content='2; URL=debit-user?id=$id'>";
+    }
+}
+
+  
 //Approve Wallet Topup
 if (isset($_POST['fund_wallet'])) {
 

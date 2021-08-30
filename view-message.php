@@ -89,14 +89,15 @@ require_once "./auth/query.php";
 
 									<div class="text-center">
 										<p class="text-sm">
-											<strong>Note:</strong> Using the close button below will change message status to <strong>"READ"</strong>.
+											<strong>Note:</strong> Using the mark as read button below will change message status to <strong>"READ"</strong>.
 										</p>
 
 										<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
                                         <input type="hidden" class="form-control form-control-lg" name="id" value="<?php echo $id; ?>">
-                                            <button type="submit" name="close_message_btn" class="btn btn-dark">
-                                                Close Message
+                                            <button type="submit" name="close_message_btn" class="btn btn-info btn-lg">
+                                            <i class="fas fa-eye"></i> Mark as read
                                             </button>
+                                            <button class="btn btn-square btn-danger btn-lg" onclick="goBack()"><i class="fas fa-times-circle"></i> Go back</button>
                                         </form>
 									</div>
 								</div>

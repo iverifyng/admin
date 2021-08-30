@@ -57,7 +57,7 @@ require_once "./auth/delete.php";
                                 </thead>
                                 <tbody>
                                 <?php
-                                $user_id = 1;
+                                $message_id = 1;
                                 $select_query = "SELECT * FROM contact ";
                                 $result = mysqli_query($conn, $select_query);
                                 if (mysqli_num_rows($result) > 0) {
@@ -83,17 +83,17 @@ require_once "./auth/delete.php";
                                         }
 
                                         echo "<tr>";
-                                        echo "<td>" .$user_id. "</td>";
+                                        echo "<td>" .$message_id. "</td>";
                                         echo "<td>" .$fullName. "</td>";
                                         echo "<td>" .$email. "</td>";
                                         echo "<td>" .$comment."" ."...". "</td>";
                                         echo "<td>" ."<span class=\"badge $class\">$status</span>". "</td>";
                                         echo "<td class='text-end'>"
                                             ."<a href='view-message?id=$id' class=\"btn btn-info\"><i class=\"fas fa-eye\"></i></a>"." "
-                                            ."<button type='button' data-id=\"$id\" class=\"btn btn-danger\" onclick=\"confirmDelete(this);\"><i class=\"fas fa-trash-alt\"></i></button>".
+                                            ."<button type='button' data-id=\"$id\" class=\"btn btn-danger\" onclick=\"confirmMsgDelete(this);\"><i class=\"fas fa-trash-alt\"></i></button>".
                                             "</td >";
                                         "</tr>";
-                                        $user_id++;
+                                        $message_id++;
                                     }
                                 }else {
                                     echo "<td><p>No Report Yet!</p></td>";
