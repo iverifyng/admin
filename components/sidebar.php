@@ -69,6 +69,12 @@
                 </ul>
             </li>
 
+            <li class="sidebar-item <?php if($page=='Promo'){echo 'active';}?>">
+                <a class="sidebar-link" href="promo">
+                    <i class="align-middle" data-feather="shopping-bag"></i> <span class="align-middle">Promo Entries</span>
+                </a>
+            </li>
+
             <li class="sidebar-item pb-3">
                 <a class="sidebar-link" href="./logout">
                     <i class="align-middle" data-feather="log-out"></i> <span class="align-middle">Log Out</span>

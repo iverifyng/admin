@@ -97,7 +97,7 @@ require_once "./auth/query.php";
                                             <button type="submit" name="close_message_btn" class="btn btn-info btn-lg">
                                             <i class="fas fa-eye"></i> Mark as read
                                             </button>
-                                            <button class="btn btn-square btn-danger btn-lg" onclick="goBack()"><i class="fas fa-times-circle"></i> Go back</button>
+                                            <a class="btn btn-square btn-danger btn-lg" href="messages"><i class="fas fa-times-circle"></i> Go back</a>
                                         </form>
 									</div>
 								</div>
