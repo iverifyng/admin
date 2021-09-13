@@ -25,7 +25,7 @@
                     <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Verifications</span>
                 </a>
                 <ul id="form-plugins" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-                    <li class="sidebar-item"><a class="sidebar-link" href="">Corporate Employee</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="corporate-employee">Corporate Employee</a></li>
                     <li class="sidebar-item"><a class="sidebar-link" href="">Domestic Employee</a></li>
                     <li class="sidebar-item"><a class="sidebar-link" href="">Employee Lite</a></li>
                     <li class="sidebar-item"><a class="sidebar-link" href="">Guarantor</a></li>
@@ -62,6 +62,16 @@
             <li class="sidebar-item <?php if($page=='Staff'){echo 'active';}?>">
                 <a data-bs-target="#maps" data-bs-toggle="collapse" class="sidebar-link collapsed">
                     <i class="align-middle" data-feather="user-check"></i> <span class="align-middle">iVerify Staff</span>
+                </a>
+                <ul id="maps" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+                    <li class="sidebar-item"><a class="sidebar-link" href="admins">Admins</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="agents">Agents</a></li>
+                </ul>
+            </li>
+
+            <li class="sidebar-item <?php if($page=='Onboard'){echo 'active';}?>">
+                <a data-bs-target="#maps" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                    <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Onboard App</span>
                 </a>
                 <ul id="maps" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
                     <li class="sidebar-item"><a class="sidebar-link" href="admins">Admins</a></li>

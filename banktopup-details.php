@@ -139,7 +139,14 @@ $id = $_GET['id'];
                                     </div>
                                 </div>
                                 
-                                <img src="<?php echo 'http://localhost/web/'.$proof ?>">
+                                <div class="text-center mx-auto mt-5" style="width: 300px;height:100%;">
+                                    <img id="myImg" class="inner-img" src="<?php echo 'https://iverify.ng'.$newProof = substr($proof, 2); ?>" style="width:100%;">
+                                </div>
+                                <!-- The Modal -->
+                                <div id="myModal" class="modal">
+                                    <span class="close" data-bs-dismiss="modal">&times;</span>
+                                    <img class="modal-content" id="img01">
+                                </div>
 
                                 <div class="text-center mt-5">
                                     <button class="btn btn-square btn-info btn-lg"><i class="fas fa-download"></i> View payment proof</button>

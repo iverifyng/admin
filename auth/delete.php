@@ -53,3 +53,20 @@ if (isset($_POST['delete_bank_topup'])) {
         echo '<meta http-equiv="refresh" content="2; URL=bank-topup">';
     }
 }
+
+
+//Promo Query
+if (isset($_POST['delete_promo'])) {
+
+    $id = $conn->real_escape_string($_POST['id']);
+
+    $delete_query = "DELETE FROM promo WHERE id='$id'";
+    mysqli_query($conn, $delete_query);
+    if (mysqli_affected_rows($conn) > 0 ) {
+        $_SESSION['success_status'] = "Welldone Chief 👍 <strong>record deleted!</strong>";
+        echo '<meta http-equiv="refresh" content="2; URL=promo">';
+    } else {
+        $_SESSION['error_status'] = "Error updating record ".mysqli_error($conn);
+        echo '<meta http-equiv="refresh" content="2; URL=promo">';
+    }
+}

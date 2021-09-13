@@ -88,12 +88,6 @@ if (mysqli_num_rows($result) > 0) {
                 <div class="col-auto d-none d-sm-block">
                     <h1 class="h3 mb-3">User Profile</h1>
                 </div>
-
-                <div class="col-auto ms-auto text-end mt-n1">
-                    <a href="user-edit?id=<?php echo $id; ?>" class="btn btn-dark shadow-sm" onClick="refreshPage()">
-                        <i class="align-middle" data-feather="edit"></i> Edit User
-                    </a>
-                </div>
             </div>
 
             <div class="row">

@@ -31,14 +31,12 @@ if (isset($_POST['user_update_btn'])) {
     }
 }
 
+$id = $_GET['id'];
 //Debit User Account
 if (isset($_POST['debit_user_btn'])) {
 
-    $id = $_GET['id'];
-
     $id = $conn->real_escape_string($_POST['id']);
     $wallet = $conn->real_escape_string($_POST['wallet']);
-    $amount = $conn->real_escape_string($_POST['amount']);
     $userID = $conn->real_escape_string($_POST['userID']);
     $userFullName = $conn->real_escape_string($_POST['userFullName']);
     $userBalance = $conn->real_escape_string($_POST['userBalance']);
@@ -46,22 +44,29 @@ if (isset($_POST['debit_user_btn'])) {
     $reason = $conn->real_escape_string($_POST['reason']);
     $transRef = 'DREF'.rand(10000000000, 9999);
 
-    
-    $query = "INSERT INTO user_debits (userID, userFullName, userBalance, amountDebited, transRef, reason)"
-                . "VALUES ('$userID', '$userFullName', '$userBalance', '$amountDebited', '$transRef', '$reason')";
-    mysqli_query($conn, $query);
-    if (mysqli_affected_rows($conn) > 0 ) {
+    $check_user_query = "SELECT * FROM users WHERE id ='".$_GET['id']."'";
+    $result = mysqli_query($conn, $check_user_query);
+    if (mysqli_num_rows($result) > 0) {
 
-        $walletNewAmount = floor($row["wallet"] - $amount);
+        while ($row = mysqli_fetch_assoc($result)) {
+            if ($row["wallet"] && $row["wallet"] <= $amountDebited) {
 
-        $update_query = "UPDATE users SET wallet=$walletNewAmount WHERE id='$id'";
 
-        $_SESSION['success_status'] = "Welldone Chief 👍 <strong>User Account</strong> Debited.";
-        echo "<meta http-equiv='refresh' content='2; URL=debit-user?id=$id'>";
-    } else {
-        $_SESSION['error_status'] = "Error updating record ".mysqli_error($conn);
-        echo "<meta http-equiv='refresh' content='2; URL=debit-user?id=$id'>";
+                $walletNewAmount = floor($row["wallet"] - $amountDebited);
+
+                $update_query = "UPDATE users SET wallet=$walletNewAmount WHERE id ='".$_GET['id']."'";
+                mysqli_query($conn, $update_query);
+                if (mysqli_affected_rows($conn) > 0 ) {
+                    $_SESSION['success_status'] = "Welldone Chief 👍 <strong>User Account</strong> Updated.";
+                    echo "<meta http-equiv='refresh' content='2; URL=debit-user?id=$id'>";
+                } else {
+                    $_SESSION['error_status'] = "Error updating record ".mysqli_error($conn);
+                    echo "<meta http-equiv='refresh' content='2; URL=debit-user?id=$id'>";
+                }
+            }
+        }
     }
+
 }
 
   

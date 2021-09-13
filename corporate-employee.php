@@ -1,15 +1,18 @@
 <?php
-$page = "Staff";
-include "./config/onboard.php";
+$page = 'Verification';
+include "./config/db.php";
 include "./components/header.php";
 include "./components/sidebar.php";
-require_once "./auth/onboard-query.php";
+require_once "./auth/delete.php";
 ?>
-
-    <div class="main">
+<div class="main">
     <?php include "./components/navbar.php"; ?>
 
     <main class="content">
+        <div class="container-fluid p-0">
+
+            <h1 class="h3 mb-3">Corporate Employee verification</h1>
+ 
             <?php
             if (isset($_SESSION['error_status'])) {
                 ?>
@@ -34,10 +37,6 @@ require_once "./auth/onboard-query.php";
                 unset($_SESSION['success_status']);
             }
             ?>
-        <div class="container-fluid p-0">
-            <button data-bs-toggle="modal" data-bs-target="#addAgentModal" class="btn btn-dark float-end mt-n1"><i class="fas fa-plus"></i> Add New Agent</button>
-
-            <h1 class="h3 mb-3">Agents</h1>
 
             <div class="row">
                 <div class="col-12">
@@ -49,34 +48,35 @@ require_once "./auth/onboard-query.php";
                                 <thead>
                                 <tr>
                                     <th>S/N</th>
-                                    <th>Full Name</th>
-                                    <th>Agent ID</th>
-                                    <th>Email</th>
+                                    <th>Employee Name</th>
+                                    <th>Reference</th>
                                     <th>Status</th>
                                     <th class="text-end">Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <?php
-                                $agents_id = 1;
-                                $select_query = "SELECT * FROM agents ";
+                                $verification_id = 1;
+                                $select_query = "SELECT * FROM corp_employee_search ";
                                 $result = mysqli_query($conn, $select_query);
                                 if (mysqli_num_rows($result) > 0) {
                                     // output data of each row
                                     while($row = mysqli_fetch_assoc($result)) {
                                         $id = $row['id'];
-                                        $firstname = $row['firstname'];
-                                        $lastname = $row['lastname'];
-                                        $agentid = $row['agentid'];
-                                        $email = $row['email'];
+                                        $employee_firstName = $row['employee_firstName'];
+                                        $employee_lastName = $row['employee_lastName'];
+                                        $companyName    = $row['companyName'];
                                         $accountType     = $row['accountType'];
-                                        $wallet = $row['wallet'];
+                                        $searchRef = $row['searchRef'];
                                         $status = $row['status'];
                                         switch ($status) {
-                                            case "Inactive";
+                                            case "Pending";
                                                 $class  = 'bg-danger';
                                                 break;
-                                            case "Active";
+                                            case "Processing";
+                                                $class  = 'bg-warning';
+                                                break;
+                                            case "Completed";
                                                 $class  = 'bg-success';
                                                 break;
                                             default:
@@ -84,21 +84,20 @@ require_once "./auth/onboard-query.php";
                                         }
 
                                         echo "<tr>";
-                                        echo "<td>" .$agents_id. "</td>";
-                                        echo "<td>" .$firstname." ".$lastname. "</td>";
-                                        echo "<td>" .$agentid. "</td>";
-                                        echo "<td>" .$email. "</td>";
+                                        echo "<td>" .$verification_id. "</td>";
+                                        echo "<td>" .$employee_firstName." ".$employee_lastName. "</td>";
+                                        echo "<td>" .$searchRef. "</td>";
                                         echo "<td>" ."<span class=\"badge $class\">$status</span>". "</td>";
                                         echo "<td class='text-end'>"
-                                            ."<button class=\"btn btn-info\"><i class=\"fas fa-eye\"></i></button>"." "
-                                            ."<a href='useredit?id=$id' class=\"btn btn-secondary\"><i class=\"fas fa-pen\"></i></a>"." "
-                                            ."<a href='delete?id=$id' class=\"delete_btn btn btn-danger\" name=\"delete\"><i class=\"fas fa-trash-alt\"></i></a>".
+                                            ."<a href='corporate-employee-details?id=$id' class=\"btn btn-info\"><i class=\"fas fa-eye\"></i></a>"." "
+                                            ."<a href='corporate-employee-edit?id=$id' class=\"btn btn-secondary\"><i class=\"fas fa-pen\"></i></a>"." "
+                                            ."<button type='button' data-id=\"$id\" class=\"btn btn-danger\" onclick=\"confirmDelete(this);\"><i class=\"fas fa-trash-alt\"></i></button>".
                                             "</td >";
                                         "</tr>";
-                                        $agents_id++;
+                                        $verification_id++;
                                     }
                                 }else {
-                                    echo "<td><p>No Agent Yet!</p></td>";
+                                    echo "<td><p>No Report Yet!</p></td>";
                                 }
                                 ?>
 
@@ -112,7 +111,7 @@ require_once "./auth/onboard-query.php";
         </div>
     </main>
 
-<?php 
+<?php
 include "./modals/modal.php";
 include "./components/footer.php";
 ?>

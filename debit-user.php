@@ -21,23 +21,10 @@ if (mysqli_num_rows($result) > 0) {
         $dateCreated = $row['dateCreated'];
         $securityKey = $row['securityKey'];
         $accountType = $row['accountType'];
-        $companyAddress = $row['companyAddress'];
         $businessType = $row['businessType'];
         $wallet = $row['wallet'];
-        $verified = $row['verified'];
-        $companyRegNum = $row['companyRegNum'];
         $status = $row['status'];
         $date = strtotime($dateCreated);
-        switch ($status) {
-            case "Inactive";
-                $Sclass  = 'danger';
-                break;
-            case "Active";
-                $Sclass  = 'success';
-                break;
-            default:
-                $Sclass  = '';
-        }
         switch ($badge) {
             case "Expert";
                 $class  = 'dark';
@@ -160,11 +147,6 @@ if (mysqli_num_rows($result) > 0) {
                 <div class="col-md-8 col-xl-9">
                     <div class="card">
                         <div class="card-header">
-                            <div class="card-actions float-end">
-                                <div class="show">
-                                    <button class="btn btn-<?php echo $Sclass; ?> btn-sm"><span data-feather="radio"></span> <?php echo $status; ?></button>
-                                </div>
-                            </div>
 
                             <h5 class="card-title mb-0">Wallet Details</h5>
                         </div>
@@ -203,7 +185,7 @@ if (mysqli_num_rows($result) > 0) {
 
                                     <div class="d-grid mt-3">
                                         <button type="submit" name="debit_user_btn" class="btn btn-lg btn-dark" onclick="this.classList.toggle('button--loading')">
-                                            <span class="button__text">Debit <?php echo $firstName; ?><?php echo $companyName; ?></span>
+                                            <span class="button__text">Debit User</span>
                                         </button>
                                     </div>
                                     

@@ -29,18 +29,16 @@ include "./components/sidebar.php";
                                     <div class="col-6">
                                         <div class="illustration-text p-3 m-1">
                                             <?php
-                                            $countUsers = mysqli_query($conn, "SELECT id FROM users");
-                                            echo "<h4 class=\"illustration-text\">".number_format(mysqli_num_rows($countUsers), 0, '.', ',')."</h4>";
-                                            ?>
-                                            <p class="mb-1">Total Users</p>
-
-                                            <?php
                                             $countTraffic = mysqli_query($conn, "SELECT id FROM traffic");
                                             echo "<h4 class=\"illustration-text\">".number_format(mysqli_num_rows($countTraffic), 0, '.', ',')."</h4>";
                                             ?>
-                                            <p class="mb-0">Total Visitors</p>
-
+                                            <p class="mb-2">Total Visitors</p>
+                                            <div class="mb-0">
+                                                <span class="badge badge-soft-danger me-2"> <i class="mdi mdi-arrow-bottom-right"></i> -4.25% </span>
+                                                <span class="text-muted">Traffic</span>
+                                            </div>
                                         </div>
+                                        
                                     </div>
                                     <div class="col-6 align-self-end text-end">
                                         <img src="img/illustrations/customer-support.png" alt="Customer Support" class="img-fluid illustration-img">
@@ -96,16 +94,19 @@ include "./components/sidebar.php";
                             <div class="card-body py-4">
                                 <div class="d-flex align-items-start">
                                     <div class="flex-grow-1">
-                                        <h3 class="mb-2">$ 18.700</h3>
-                                        <p class="mb-2">Total Revenue</p>
+                                        <?php
+                                        $countUsers = mysqli_query($conn, "SELECT id FROM users");
+                                        echo "<h3 class=\"mb-2\">".number_format(mysqli_num_rows($countUsers), 0, '.', ',')."</h3>"
+                                        ?>
+                                        <p class="mb-2">Registered Users</p>
                                         <div class="mb-0">
-                                            <span class="badge badge-soft-success me-2"> <i class="mdi mdi-arrow-bottom-right"></i> +8.65% </span>
+                                            <span class="badge badge-soft-success me-2"> <i class="mdi mdi-arrow-bottom-right"></i> +5.35% </span>
                                             <span class="text-muted">Since last week</span>
                                         </div>
                                     </div>
                                     <div class="d-inline-block ms-3">
                                         <div class="stat">
-                                            <i class="align-middle text-info" data-feather="dollar-sign"></i>
+                                            <i class="align-middle text-info" data-feather="users"></i>
                                         </div>
                                     </div>
                                 </div>

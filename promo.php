@@ -81,7 +81,7 @@ require_once "./auth/delete.php";
                                         echo "<td class='text-end'>"
                                         
                                             ."<a href='promo-details?id=$id' class=\"btn btn-info\"><i class=\"fas fa-eye\"></i></a>"." "
-                                            ."<button type='button' data-id=\"$id\" class=\"btn btn-danger\" onclick=\"confirmDelete(this);\"><i class=\"fas fa-trash-alt\"></i></button>".
+                                            ."<button type='button' data-id=\"$id\" class=\"btn btn-danger\" onclick=\"confirmPromoDelete(this);\"><i class=\"fas fa-trash-alt\"></i></button>".
                                             "</td >";
                                         "</tr>";
                                         $user_id++;
