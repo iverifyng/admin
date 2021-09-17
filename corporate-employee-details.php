@@ -50,7 +50,7 @@ require_once "./auth/query.php";
                         <div class="card-body mt-3">
                             <div class="text-center mb-4">
                                 <div class="mb-3">
-                                    <img alt="Chris Wood" src="./img/svg/bill.svg" class="img-responsive mt-2" width="128" height="128">
+                                    <img alt="Chris Wood" src="./img/svg/employee.svg" class="img-responsive mt-2" width="128" height="128">
                                 </div>
                                 <h4 class="mb-n3">Search Reference.</h4>
                                 <br /><strong><img src="./img/barcode.png">&nbsp; <?php echo $searchRef; ?></strong>
