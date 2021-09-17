@@ -114,11 +114,11 @@ require_once "./auth/query.php";
                                 
                                 <div class="row text-center mx-auto mt-5" style="width: 500px;height:500px;">
                                     <div class="col-md-6 col-lg-6">
-                                        <embed id="myImg" class="inner-img" src="<?php echo 'https://iverify.ng'.$meansOfID = substr($meansOfID, 2); ?>" style="width:100%;"/>
+                                        <embed id="myImg" class="inner-img mb-3" src="<?php echo 'https://iverify.ng'.$meansOfID = substr($meansOfID, 2); ?>" style="width:100%;"/>
                                         <a href="<?php echo 'https://iverify.ng'.$meansOfID; ?>" target="_blank" class="btn btn-square btn-info btn-lg"><i class="fas fa-download"></i> View means of ID</a>
                                     </div>
                                     <div class="col-md-6 col-lg-6">
-                                        <embed id="myImg" class="inner-img" src="<?php echo 'https://iverify.ng'.$curriculumVitae = substr($curriculumVitae, 2); ?>" style="width:100%;"/>
+                                        <embed id="myImg" class="inner-img mb-3" src="<?php echo 'https://iverify.ng'.$curriculumVitae = substr($curriculumVitae, 2); ?>" style="width:100%;"/>
                                         <a href="<?php echo 'https://iverify.ng'.$curriculumVitae; ?>" target="_blank" class="btn btn-square btn-info btn-lg"><i class="fas fa-download"></i> View CV</a>
                                     </div>
                                 </div>
