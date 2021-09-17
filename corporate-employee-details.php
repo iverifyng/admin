@@ -112,7 +112,7 @@ require_once "./auth/query.php";
                                     </div>
                                 </div>
                                 
-                                <div class="row text-center mx-auto mt-5" style="width: 500px;height:500px;">
+                                <div class="row text-center mx-auto mt-5" style="width: 500px;">
                                     <div class="col-md-6 col-lg-6">
                                         <embed id="myImg" class="inner-img mb-3" src="<?php echo 'https://iverify.ng'.$meansOfID = substr($meansOfID, 2); ?>" style="width:100%;"/>
                                         <a href="<?php echo 'https://iverify.ng'.$meansOfID; ?>" target="_blank" class="btn btn-square btn-info btn-lg"><i class="fas fa-download"></i> View means of ID</a>
