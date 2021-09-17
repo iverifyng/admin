@@ -112,9 +112,13 @@ require_once "./auth/query.php";
                                     </div>
                                 </div>
                                 
-                                <div class="text-center mx-auto mt-5" style="width: 300px;height:100%;">
+                                <div class="row text-center mx-auto mt-5" style="width: 300px;height:100%;">
+                                    <div class="col-md-6 col-lg-6">
                                     <embed id="myImg" class="inner-img" src="<?php echo 'https://iverify.ng'.$meansOfID = substr($meansOfID, 2); ?>" style="width:100%;"/>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6">
                                     <embed id="myImg" class="inner-img" src="<?php echo 'https://iverify.ng'.$curriculumVitae = substr($curriculumVitae, 2); ?>" style="width:100%;"/>
+                                    </div>
                                 </div>
                                 <!-- The Modal -->
                                 <div id="myModal" class="modal">
