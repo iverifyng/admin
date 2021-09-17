@@ -140,7 +140,8 @@ $id = $_GET['id'];
                                 </div>
                                 
                                 <div class="text-center mx-auto mt-5" style="width: 300px;height:100%;">
-                                    <img id="myImg" class="inner-img" src="<?php echo 'https://iverify.ng'.$newProof = substr($proof, 2); ?>" style="width:100%;">
+                                    <embed id="myImg" class="inner-img" src="<?php echo 'https://iverify.ng'.$newProof = substr($proof, 2); ?>" style="width:100%;"/>
+                                    
                                 </div>
                                 <!-- The Modal -->
                                 <div id="myModal" class="modal">
@@ -149,7 +150,7 @@ $id = $_GET['id'];
                                 </div>
 
                                 <div class="text-center mt-5">
-                                    <button class="btn btn-square btn-info btn-lg"><i class="fas fa-download"></i> View payment proof</button>
+                                <a href="<?php echo 'https://iverify.ng'.$newProof = substr($proof, 2); ?>" target="_blank" class="btn btn-square btn-info btn-lg"><i class="fas fa-download"></i> View payment proof</a>
                                     <?php 
                                         if ($paymentStatus == "Successful") {
                                                 echo "<button class='btn btn-lg btn-square btn-secondary'><i class='fas fa-check-circle'></i> Approved</button>"." ";

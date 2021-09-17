@@ -3,6 +3,7 @@
         <i class="hamburger align-self-center"></i>
     </a>
 
+    <!--
     <form class="d-none d-sm-inline-block">
         <div class="input-group input-group-navbar">
             <input type="text" class="form-control" placeholder="Search projects…" aria-label="Search">
@@ -11,6 +12,7 @@
             </button>
         </div>
     </form>
+    -->
 
 
     <div class="navbar-collapse collapse">
