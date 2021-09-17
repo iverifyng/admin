@@ -129,13 +129,8 @@ require_once "./auth/query.php";
                                 </div>
 
                                 <div class="text-center mt-5">
-                                    <?php 
-                                        if ($paymentStatus == "Successful") {
-                                                echo "<button class='btn btn-lg btn-square btn-secondary'><i class='fas fa-check-circle'></i> Approved</button>"." ";
-                                            }else {
-                                                echo "<button type='button' data-id=\"$id\" info-id='$amount' class=\"btn btn-lg btn-square btn-success\" onclick=\"confirmPayment(this);\"><i class=\"fas fa-check\"></i></i> Approve</button>"." ";
-                                            }
-                                     ?>
+                                    <button type='button' data-id=\"$id\" info-id='$amount' class="btn btn-lg btn-square btn-secondary" onclick="confirmPayment(this);"><i class="fas fa-pen"></i></i> Update Status</button>
+            
                                     <button class="btn btn-square btn-danger btn-lg" onclick="goBack()"><i class="fas fa-times-circle"></i> Go back</button>
                                 </div>
 
